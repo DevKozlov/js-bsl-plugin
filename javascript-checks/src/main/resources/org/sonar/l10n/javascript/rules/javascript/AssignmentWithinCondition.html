@@ -1,0 +1,24 @@
+<p>
+Doing an assignment in the condition part of a 'if', 'while' or 'for' statement is highly not recommended for the two following reasons :
+</p>
+
+<ul>
+<li>The assignment is perhaps a bug as the '=' operator might have been used in place of the '==' operator</li>
+<li>If this is not a bug, this is highly error prone as another developer might read '==' instead of '=' while trying to maintain the source code</li>
+</ul>
+
+<pre>
+if (dayNumber = getClickedDayNumber(dayInfo)) { // Non-Compliant
+  alert("day number found : " + dayNumber);
+}
+</pre>
+
+<p>
+If you really want to do the assignment in place, then better to do an explicit comparison as well :
+</p>
+
+<pre>
+if ((value = someFunction()) === true) { // Compliant
+  // ...
+}
+</pre>
